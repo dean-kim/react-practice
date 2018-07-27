@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# web storm
+.DS_Store
+.idea
+.idea/workspace.xml
