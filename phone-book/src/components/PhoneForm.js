@@ -2,24 +2,32 @@ import React, { Component } from 'react';
 
 class PhoneForm extends Component {
     state = {
-        name: ''
+        name: '',
+        phone: ''
     }
 
     handleChange = (e) => {
         this.setState({
-            name: e.target.value
-        })
+            [e.target.name]: e.target.value
+        });
     }
 
     render() {
         return (
             <form>
                 <input
-                placeholder="Name"
-                value={this.state.name}
-                onChange={this.handleChange}
+                    placeholder="Name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    name="name"
                 />
-                <div>{this.state.name}</div>
+                <input
+                    placeholder="Phone Number"
+                    value={this.state.phone}
+                    onChange={this.handleChange}
+                    name="phone"
+                />
+                <div>{this.state.name} {this.state.phone}</div>
             </form>
         );
     }
