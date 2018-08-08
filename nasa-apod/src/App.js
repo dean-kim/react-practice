@@ -7,13 +7,48 @@ import * as api from './lib/api';
 
 class App extends Component {
 
+    state = {
+        loading: false,
+        maxDate: null,
+        date: null,
+        url: null,
+        mediaType: null
+    }
+
     getAPOD = async (date) => {
+        if (this.state.loading) return; // 이미 요청중이라면 무시
+
+        // 로딩 상태 시작
+        this.setState({
+            loading: true
+        });
+
         try {
             const response = await api.getAPOD(date);
-            console.log(response);
+            // 비구조화 할당 + 새로운 이름
+            const { date: retrievedDate, url, media_type: mediaType } = response.data;
+
+            if(!this.state.maxDate) {
+                // 만약에 maxDate 가 없으면 지금 받은 date 로 지정
+                this.setState({
+                    maxDate: retrievedDate
+                })
+            }
+
+            // 전달받은 데이터 넣어주기
+            this.setState({
+                date: retrievedDate,
+                mediaType,
+                url
+            });
         } catch (e) {
             console.log(e);
         }
+
+        // 로딩 상태 종료
+        this.setState({
+            loading: false
+        });
     }
 
     componentDidMount() {
@@ -21,13 +56,17 @@ class App extends Component {
     }
 
     render() {
+        const { url, mediaType, loading } = this.state;
+
         return (
             <ViewerTemplate
                 spaceNavigator={<SpaceNavigator/>}
                 viewer={(
                     <Viewer
-                        url="https://www.youtube.com/embed/uj3Lq7Gu94Y?rel=0"
-                        mediaType="video"/>
+                        url={url}
+                        mediaType={mediaType}
+                        loading={loading}
+                    />
                 )}
             />
         );
