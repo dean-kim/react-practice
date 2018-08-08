@@ -29,7 +29,7 @@ function counter(state = initialState, action) {
         case types.SET_COLOR:
             return {
                 ...state,
-                color: state.color
+                color: action.color
             };
         default:
             return state;
