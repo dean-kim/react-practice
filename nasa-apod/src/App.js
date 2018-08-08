@@ -7,10 +7,13 @@ import * as api from './lib/api';
 
 class App extends Component {
 
-    getAPOD = (date) => {
-        api.getAPOD(date).then((reponse) => {
-            console.log(reponse);
-        });
+    getAPOD = async (date) => {
+        try {
+            const response = await api.getAPOD(date);
+            console.log(response);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     componentDidMount() {
