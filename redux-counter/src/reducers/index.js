@@ -37,11 +37,15 @@ function counter(state = initialState, action) {
         case types.INCREMENT:
             return {
                 counters: [
+                    // 0 ~ action.index 사이의 아이템들을 잘라와서 이 자리에 넣는다.
                     ...counters.slice(0, action.index),
                     {
+                        // 기존 값은 유지하면서
                         ...counters[action.index],
+                        // number 값을 덮어쓴다.
                         number: counters[action.index].number + 1
                     },
+                    // action.index + 1 ~ 마지막까지 잘라온다.
                     ...counters.slice(action.index + 1, counters.length)
                 ]
             };
