@@ -6,8 +6,9 @@
 
 import * as types from './ActionTypes';
 
-export const create = () => ({
-    type: types.CREATE
+export const create = (color) => ({
+    type: types.CREATE,
+    color
 });
 
 export const remove = () => ({
@@ -24,7 +25,6 @@ export const decrement = (index) => ({
     index
 });
 
-// 다른 액션 생성자들과 달리, 파라미터를 갖고있습니다
 export const setColor = (index, color) => ({
     type: types.SET_COLOR,
     index,

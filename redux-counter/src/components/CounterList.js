@@ -11,6 +11,7 @@ const CounterList = ({counters, onIncrement, onDecrement, onSetColor}) => {
             <Counter
                 key={i}
                 index={i}
+                {...counter}
                 onIncrement={onIncrement}
                 onDecrement={onDecrement}
                 onSetColor={onSetColor}
