@@ -1,5 +1,5 @@
 import CounterList from '../components/CounterList';
-import * as actions from '../actions';
+import * as actions from '../modules';
 import { connect } from 'react-redux';
 import { getRandomColor } from '../utils';
 
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     onDecrement: (index) => dispatch(actions.decrement(index)),
     onSetColor: (index) => {
         const color = getRandomColor();
-        dispatch(actions.setColor(index, color))
+        dispatch(actions.setColor({index, color}))
     }
 })
 
