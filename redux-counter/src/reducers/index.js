@@ -14,10 +14,13 @@ import * as types from '../actions/ActionTypes';
 
 // immutable 적용
 const initialState = Map({
-    counters: List({
-        color: 'black',
-        number: 0
-    })
+    counters: List([
+        Map({
+            color: 'black',
+            number: 0
+        })
+        ]
+    )
 })
 
 // 리듀서 함수를 정의합니다.
