@@ -29,7 +29,7 @@ RefrigeratorDrawerList.propTypes = {
 };
 
 RefrigeratorDrawerList.defaultProps = {
-    counters: []
+    refrigeratorDrawers: []
 };
 
 export default RefrigeratorDrawerList;
