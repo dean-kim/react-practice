@@ -10,12 +10,6 @@ class App extends Component {
         const { onCreate, onRemove } = this.props;
         return (
             <div>
-                <div>
-                    Refrigerator
-                </div>
-                <div>
-                    Freezer
-                </div>
                 <div className="App">
                     <Buttons
                         onCreate={onCreate}
