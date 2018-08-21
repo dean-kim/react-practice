@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Buttons from '../components/Buttons';
 import RefrigeratorDrawerContainer from './RefrigeratorDrawerContainer';
 
 import { connect } from 'react-redux';
@@ -6,6 +7,7 @@ import * as actions from '../modules';
 
 class App extends Component {
     render() {
+        const { onCreate, onRemove } = this.props;
         return (
             <div>
                 <div>
@@ -14,8 +16,12 @@ class App extends Component {
                 <div>
                     Freezer
                 </div>
-                <div>
-                    <RefrigeratorDrawerContainer />
+                <div className="App">
+                    <Buttons
+                        onCreate={onCreate}
+                        onRemove={onRemove}
+                    />
+                    <RefrigeratorDrawerContainer/>
                 </div>
             </div>
         )

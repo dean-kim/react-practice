@@ -10,7 +10,7 @@ export const remove = createAction(REMOVE);
 
 // 초기 상태를 정의합니다
 const initialState = Map({
-    counters: List([
+    refrigeratorDrawers: List([
         Map({
             name: '',
             number: 0
