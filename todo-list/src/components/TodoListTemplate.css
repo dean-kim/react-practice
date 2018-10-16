@@ -23,3 +23,12 @@
 .todos-wrapper {
     min-height: 5rem;
 }
+
+.palette-wrapper {
+    padding: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 100;
+    background: #22b8cf;
+    color: honeydew;
+}
